@@ -1,8 +1,17 @@
 ﻿<header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>Witaj użytkowniku</li>
+                <li><a href="@Url.Action("logout","account")" class="btn btn--small btn--highlighted">Wyloguj</a></li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("login","account")" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                <li><a href="@Url.Action("register","account")" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            }
+
         </ul>
 
         <ul>
