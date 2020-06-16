@@ -1,4 +1,5 @@
 ﻿using DonationApp.Models.Db;
+using DonationApp.Models.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,8 @@ namespace DonationApp.Services.Interfaces
         Task<bool> Delete(int id);
         Task<int> DonationCount();
         Task<int> DonatedInstitionsCount();
+        
+        // ZAPYTAĆ
+        Task<DonationView> PrepareViewModel();
     }
 }
