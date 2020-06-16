@@ -12,7 +12,8 @@ namespace DonationApp.Context
     {
         public DonationContext(DbContextOptions<DonationContext> options) : base(options) { }
 
-        // Zaślepka na klasę bazową
+        public DbSet<CategoryModel> Categories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
