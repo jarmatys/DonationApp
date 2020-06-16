@@ -14,6 +14,7 @@ namespace DonationApp.Context
 
         public DbSet<CategoryModel> Categories { get; set; }
         public DbSet<InstitutionModel> Instituties { get; set; }
+        public DbSet<DonationModel> Donations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
