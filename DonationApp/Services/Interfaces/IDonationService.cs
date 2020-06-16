@@ -13,5 +13,6 @@ namespace DonationApp.Services.Interfaces
         Task<IList<DonationModel>> GetAll();
         Task<bool> Update(DonationModel donation);
         Task<bool> Delete(int id);
+        Task<int> DonationCount();
     }
 }

@@ -49,5 +49,11 @@ namespace DonationApp.Services
 			_context.Donations.Remove(donation);
 			return await _context.SaveChangesAsync() > 0;
 		}
+
+		public async Task<int> DonationCount()
+		{
+			var donationList = await _context.Donations.ToListAsync();
+			return donationList.Count();
+		}
 	}
 }

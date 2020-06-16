@@ -12,14 +12,17 @@ namespace DonationApp.Controllers
     public class HomeController : Controller
     {
         private readonly IInstitutionService _institutionService;
-        public HomeController(IInstitutionService institutionService)
+        private readonly IDonationService _donationService;
+        public HomeController(IInstitutionService institutionService, IDonationService donationService)
         {
             _institutionService = institutionService;
+            _donationService = donationService;
         }
 
         public async Task<IActionResult> Index()
         {
             ViewData["institutions"] = await _institutionService.GetAll();
+            ViewData["sumOfBag"] = await _donationService.DonationCount();
             return View();
         }
         public IActionResult Error()
