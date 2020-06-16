@@ -171,4 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (form !== null) {
 		new FormSteps(form);
 	}
+
+	// Przekazanie danych do ostatniego etapu
 });
