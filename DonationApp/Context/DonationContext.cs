@@ -13,6 +13,7 @@ namespace DonationApp.Context
         public DonationContext(DbContextOptions<DonationContext> options) : base(options) { }
 
         public DbSet<CategoryModel> Categories { get; set; }
+        public DbSet<InstitutionModel> Instituties { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
