@@ -14,5 +14,6 @@ namespace DonationApp.Services.Interfaces
         Task<bool> Update(DonationModel donation);
         Task<bool> Delete(int id);
         Task<int> DonationCount();
+        Task<int> DonatedInstitionsCount();
     }
 }

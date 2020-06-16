@@ -23,6 +23,7 @@ namespace DonationApp.Controllers
         {
             ViewData["institutions"] = await _institutionService.GetAll();
             ViewData["sumOfBag"] = await _donationService.DonationCount();
+            ViewData["sumOfInstitions"] = await _donationService.DonatedInstitionsCount();
             return View();
         }
         public IActionResult Error()

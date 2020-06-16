@@ -55,5 +55,11 @@ namespace DonationApp.Services
 			var donationList = await _context.Donations.ToListAsync();
 			return donationList.Count();
 		}
+
+		public async Task<int> DonatedInstitionsCount()
+		{
+			var donatedInstitionsList = await _context.Donations.Include(x => x.Institution).Select(x => x.Institution.Id).Distinct().ToListAsync();
+			return donatedInstitionsList.Count();
+		}
 	}
 }
