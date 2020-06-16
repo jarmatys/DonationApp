@@ -2,7 +2,6 @@
     ViewBag.Title = "Strona gówna";
 }
 
-
 <section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">
@@ -69,28 +68,31 @@
         </p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
+            @{
+                var count = (double)(ViewData["institutions"] as List<InstitutionModel>).Count;
+                var leftSideCount = (int)Math.Ceiling(count / 2);
+
+            }
+
+            <li>
+                @foreach (var instition in (ViewData["institutions"] as List<InstitutionModel>).Take(leftSideCount))
+                {
+                    <div class="col">
+                        <div class="title">Fundacja "@instition.Name"</div>
+                        <div class="subtitle">Cel i misja: @instition.Description</div>
+                    </div>
+                }
             </li>
 
             <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
+                @foreach (var instition in (ViewData["institutions"] as List<InstitutionModel>).Skip(leftSideCount))
+                {
+                    <div class="col">
+                        <div class="title">Fundacja "@instition.Name"</div>
+                        <div class="subtitle">Cel i misja: @instition.Description</div>
+                    </div>
+                }
             </li>
 
         </ul>
