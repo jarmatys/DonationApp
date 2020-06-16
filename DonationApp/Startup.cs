@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DonationApp.Context;
 using DonationApp.Models.Db;
+using DonationApp.Services;
+using DonationApp.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -47,6 +49,8 @@ namespace DonationApp
             {
                 builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
