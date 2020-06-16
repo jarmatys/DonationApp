@@ -127,6 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
 					e.preventDefault();
 					this.currentStep++;
 					this.updateForm();
+
+					if (this.currentStep == 5) {
+						updateSummary();
+					}
 				});
 			});
 
@@ -135,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				btn.addEventListener("click", e => {
 					e.preventDefault();
 					this.currentStep--;
-					this.updateForm();
+					this.updateForm();			
 				});
 			});
 
@@ -172,5 +176,44 @@ document.addEventListener("DOMContentLoaded", function () {
 		new FormSteps(form);
 	}
 
-	// Przekazanie danych do ostatniego etapu
+	// get inputs
+	const bags = document.querySelector("#bags");
+	const bagsSummary = document.querySelector("#bagsSummary");
+
+	const institutionSummary = document.querySelector("#institutionSummary");
+
+	const street = document.querySelector("#street");
+	const streetSummary = document.querySelector("#streetSummary");
+
+	const city = document.querySelector("#city");
+	const citySummary = document.querySelector("#citySummary");
+
+	const zipCode = document.querySelector("#zipCode");
+	const zipCodeSummary = document.querySelector("#zipCodeSummary");
+
+	const phone = document.querySelector("#phone");
+	const phoneSummary = document.querySelector("#phoneSummary");
+
+	const date = document.querySelector("#date");
+	const dateSummary = document.querySelector("#dateSummary");
+
+	const time = document.querySelector("#time");
+	const timeSummary = document.querySelector("#timeSummary");
+
+	const message = document.querySelector("#message");
+	const messageSummary = document.querySelector("#messageSummary");
+
+	function updateSummary() {
+		const institution = document.querySelector('input[name="InstitutionItems"]:checked');
+
+		bagsSummary.innerText = bags.value;
+		institutionSummary.innerText = institution.value;
+		streetSummary.innerText = street.value;
+		citySummary.innerText = city.value;
+		zipCodeSummary.innerText = zipCode.value;
+		phoneSummary.innerText = phone.value;
+		dateSummary.innerText = date.value;
+		timeSummary.innerText = time.value;
+		messageSummary.innerText = message.value;
+	}
 });

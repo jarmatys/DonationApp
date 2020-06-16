@@ -59,7 +59,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <input type="number" name="bags" step="1" min="1" />
+                        <input type="number" name="bags" id="bags" step="1" min="1" />
                     </label>
                 </div>
 
@@ -106,22 +106,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address" /> </label>
+                            <label> Ulica <input type="text" name="address" id="street" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <input type="text" name="city" id="city" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <input type="text" name="postcode" id="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="text" name="phone" />
+                                Numer telefonu <input type="text" name="phone" id="phone" />
                             </label>
                         </div>
                     </div>
@@ -129,17 +129,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data" /> </label>
+                            <label> Data <input type="date" name="data" id="date" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <input type="time" name="time" id="time" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="moreInfo" rows="5"></textarea>
+                                <textarea name="moreInfo" id="message" rows="5"></textarea>
                             </label>
                         </div>
                     </div>
@@ -149,8 +149,6 @@
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
             </div>
-
-            <!-- STEP 5 -->
             <div data-step="5">
                 <h3>Podsumowanie Twojej darowizny</h3>
 
@@ -160,12 +158,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text">2 worki ubrań w dobrym stanie dla dzieci</span>
+                                <span class="summary--text"><span id="bagsSummary"></span> worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
+                                <span class="summary--text">Dla fundacji "<span id="institutionSummary"></span>" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
@@ -174,19 +172,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="citySummary"></li>
+                                <li id="streetSummary"></li>
+                                <li id="zipCodeSummary"></li>
+                                <li id="phoneSummary"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="dateSummary"></li>
+                                <li id="timeSummary"></li>
+                                <li id="messageSummary"></li>
                             </ul>
                         </div>
                     </div>
