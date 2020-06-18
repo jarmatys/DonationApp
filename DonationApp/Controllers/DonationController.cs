@@ -27,7 +27,6 @@ namespace DonationApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Donate(DonationView result)
         {
-            // ZAPYTAĆ, czy mogę tak dodawać czy jest lepszy patern na to 
             if (result.CategoriesSelected == null)
             {
                 ModelState.AddModelError("", "Zaznacz przynajmniej jedną kategorie");

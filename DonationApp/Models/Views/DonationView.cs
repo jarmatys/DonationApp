@@ -28,16 +28,21 @@ namespace DonationApp.Models.Views
         [Required(ErrorMessage = "Miasto jest obowiązkowe")]
         public string City { get; set; }
         // Zapytać string ??
+
         [Required(ErrorMessage = "Kod pocztowy jest obowiązkowy")]
         public string Postcode { get; set; }
+
         // Zapytać ?? czy phone i zipcode moze byc stringiem czy raczej jakieś int?
         [Required(ErrorMessage = "telefon jest obowiązkowy")]
         public string Phone { get; set; }
 
+        
         [Required(ErrorMessage = "Data jest obowiązkowy")]
         public DateTime Data { get; set; }
+
         [Required(ErrorMessage = "czas jest obowiązkowy")]
         public DateTime Time { get; set; }
+
         public string Moreinfo { get; set; }
     }
 
