@@ -45,6 +45,9 @@ namespace DonationApp.Controllers
                 return View(viewModel);
             }
 
+            // jeżeli przeszło walidacje dodajemy donacje do bazy
+            await _donationService.Create(result);
+
             return RedirectToAction("DonateConfirmation", "Donation");
         }
 

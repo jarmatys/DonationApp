@@ -9,7 +9,7 @@ namespace DonationApp.Models.Db
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
-        public List<CategoryModel> Categories { get; set; }
+        public List<CategoryDonationModel> Categories { get; set; }
         public InstitutionModel Institution { get; set; }
         public string Street { get; set; }
         public string City { get; set; }

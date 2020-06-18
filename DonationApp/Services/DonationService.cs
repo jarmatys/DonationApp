@@ -20,8 +20,21 @@ namespace DonationApp.Services
             _context = context;
         }
 
-        public async Task<bool> Create(DonationModel donation)
+        public async Task<bool> Create(DonationView result)
         {
+            var donation = new DonationModel
+            {
+                Quantity = result.Bags,
+                // Categories = 
+                Institution = await _context.Instituties.FindAsync(result.SelectedInstitutionId),
+                Street = result.Address,
+                City = result.City,
+                ZipCode = result.Postcode,
+                PickUpDate = result.Data,
+                PickUpTime = result.Time,
+                PickUpComment = result.Moreinfo
+            };
+
             _context.Donations.Add(donation);
             return await _context.SaveChangesAsync() > 0;
         }

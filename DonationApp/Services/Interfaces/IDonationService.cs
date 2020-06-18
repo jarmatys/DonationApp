@@ -9,7 +9,8 @@ namespace DonationApp.Services.Interfaces
 {
     public interface IDonationService
     {
-        Task<bool> Create(DonationModel donation);
+        // Zapytać czy to ma działać na modelach czy na view jak operuje na bazie
+        Task<bool> Create(DonationView donation);
         Task<DonationModel> Get(int id);
         Task<IList<DonationModel>> GetAll();
         Task<bool> Update(DonationModel donation);
@@ -17,7 +18,6 @@ namespace DonationApp.Services.Interfaces
         Task<int> DonationCount();
         Task<int> DonatedInstitionsCount();
         
-        // ZAPYTAĆ
         Task<DonationView> PrepareViewModel(DonationView result = null);
     }
 }
