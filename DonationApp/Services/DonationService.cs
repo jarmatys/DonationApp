@@ -25,7 +25,6 @@ namespace DonationApp.Services
             var donation = new DonationModel
             {
                 Quantity = result.Bags,
-                // Categories = 
                 Institution = await _context.Instituties.FindAsync(result.SelectedInstitutionId),
                 Street = result.Address,
                 City = result.City,
@@ -35,6 +34,17 @@ namespace DonationApp.Services
                 PickUpComment = result.Moreinfo
             };
 
+            foreach (var category in result.CategoriesSelected)
+            {
+                var toDb = new CategoryDonationModel
+                {
+                    Donation = donation,
+                    Category = await _context.Categories.FindAsync(category)
+                };
+                _context.CategoryDonation.Add(toDb);
+            }
+
+            
             _context.Donations.Add(donation);
             return await _context.SaveChangesAsync() > 0;
         }

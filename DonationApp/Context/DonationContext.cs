@@ -15,6 +15,8 @@ namespace DonationApp.Context
         public DbSet<CategoryModel> Categories { get; set; }
         public DbSet<InstitutionModel> Instituties { get; set; }
         public DbSet<DonationModel> Donations { get; set; }
+        // Zapytać jest jakieś nazewnictwo w many to many
+        public DbSet<CategoryDonationModel> CategoryDonation { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

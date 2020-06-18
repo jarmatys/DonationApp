@@ -14,7 +14,7 @@ namespace DonationApp.Models.Db
         public int DonationId { get; set; }
         public DonationModel Donation { get; set; }
 
-        public int InstitutionId { get; set; }
-        public InstitutionModel Institution { get; set; }
+        public int CategoryId { get; set; }
+        public CategoryModel Category { get; set; }
     }
 }
