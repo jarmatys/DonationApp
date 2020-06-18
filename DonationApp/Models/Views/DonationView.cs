@@ -15,6 +15,7 @@ namespace DonationApp.Models.Views
         public int Bags { get; set; }
 
         // Etap 3
+        public int SelectedInstitutionId { get; set; }
         public List<InstitionView> InstitutionItems { get; set; }
 
         // Etap 4

@@ -6,22 +6,30 @@
 }
 
 <section class="login-page">
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     <h2>Załóż konto</h2>
-    <form>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
+            @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email" })
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
+            @Html.TextBoxFor(x => x.Name, new { @placeholder = "Imie" })
         </div>
         <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
+            @Html.TextBoxFor(x => x.Surname, new { @placeholder = "Nazwisko" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(x => x.Password, new { @placeholder = "Haslo" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(x => x.ReapeatPassword, new { @placeholder = "Powtorz Haslo" })
         </div>
 
         <div class="form-group form-group--buttons">
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
-    </form>
+    }
 </section>
 
