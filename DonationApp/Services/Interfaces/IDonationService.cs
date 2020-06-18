@@ -18,6 +18,6 @@ namespace DonationApp.Services.Interfaces
         Task<int> DonatedInstitionsCount();
         
         // ZAPYTAĆ
-        Task<DonationView> PrepareViewModel();
+        Task<DonationView> PrepareViewModel(DonationView result = null);
     }
 }

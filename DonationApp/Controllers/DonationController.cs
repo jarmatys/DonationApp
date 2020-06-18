@@ -25,11 +25,24 @@ namespace DonationApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Donate(DonationView result)
+        public async Task<IActionResult> Donate(DonationView result)
         {
+            // ZAPYTAĆ, czy mogę tak dodawać czy jest lepszy patern na to 
+            if (result.CategoriesSelected == null)
+            {
+                ModelState.AddModelError("", "Zaznacz przynajmniej jedną kategorie");
+            }
+
+            if (result.SelectedInstitutionId == 0)
+            {
+                ModelState.AddModelError("", "Wybierz organizację");
+            }
+
             if (!ModelState.IsValid)
             {
-                return View(result);
+                var viewModel = await _donationService.PrepareViewModel(result);
+
+                return View(viewModel);
             }
 
             return RedirectToAction("DonateConfirmation", "Donation");

@@ -204,10 +204,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	const messageSummary = document.querySelector("#messageSummary");
 
 	function updateSummary() {
-		const institution = document.querySelector('input[name="InstitutionItems"]:checked');
+		const institution = document.querySelector('input[name="SelectedInstitutionId"]:checked');
 
 		bagsSummary.innerText = bags.value;
-		institutionSummary.innerText = institution.value;
+		institutionSummary.innerText = institution.dataset.name;
 		streetSummary.innerText = street.value;
 		citySummary.innerText = city.value;
 		zipCodeSummary.innerText = zipCode.value;
